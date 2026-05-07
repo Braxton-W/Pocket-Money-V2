@@ -5,7 +5,7 @@
 Open a terminal and navigate to the directory you would like to install Pocket Money.
 
 ```git
-git clone https://github.com/Braxton-W/Pocket-Money PocketMoney
+git clone https://github.com/Braxton-W/Pocket-Money-V2 PocketMoney
 ```
 
 ## Deploy
