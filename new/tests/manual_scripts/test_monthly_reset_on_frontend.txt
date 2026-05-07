@@ -1,0 +1,13 @@
+SCRIPT ID: manual-04
+TITLE: Test Log Purchase on Frontend
+PRECONDITION (S):
+    The app has been initialized and the frontend is open to the dashboard with the modal closed
+    Automatic Pytest tests have been executed and all pass
+    Tests manual-01 to manual-03 have been conducted and all meet expected results
+    The user has prepopulated example data into the Category and Purchases tables
+STEPS:
+    1. Click the "Monthly Reset" button.
+        Expected result: User is redirected to monthly setup.
+    2. Navigate to dashboard
+        Expected result: Category and purchases tables are empty.
+    3. Exit the test by closing the webpage and doing ctrl c in terminal.

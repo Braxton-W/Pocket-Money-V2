@@ -1,0 +1,28 @@
+SCRIPT ID: manual-02
+TITLE: Test Monthly Setup on Frontend
+PRECONDITION (S):
+    The app has been initialized but the frontend is not open
+    Automatic Pytest tests have been executed and all pass
+    Tests manual-01 have been conducted and all meet expected results
+    The database has been cleared and reset from any previous instances of Pocket Money
+STEPS:
+    1. Open the frontend with the URL in the Flask terminal output.
+        Expected result: The Pocket Money dashboard page appears with a modal saying "Welcome! Let's set up your first budget." overlaid.
+    2. Enter the following in this EXACT format and click save setup
+        Food, 50
+        Rent, 50
+        Fun, 50
+        Expected result: The modal closes and now in the budget by category widget, the information
+        entered in step 1 appears in order in the table with "$50.00" as the budget on each,
+        "$0.00" as the spent on each and "$50.00" as the remaining on each.
+    3. Navigate to the monthly setup page and enter a new category called "Gas"
+        Expected result: None.
+    4. Return to the dashboard 
+        Expected result: the new gas category should appear with all totals as "$0.00" underneath
+        food, rent, and fun.
+    5. Navigate back to monthly setup and go to the set/update budget widget. Select gas in the picker
+    input and enter 100 as the monthly budget amount. Then hit save
+        Expected result: None
+    6. Navigate back to dashboard
+        Expected result: The gas category now has a budget of $100.00, spend $0.00 and remaining $100.00.
+    7. End the test by clicking monthly reset and CTRL C in the terminal.

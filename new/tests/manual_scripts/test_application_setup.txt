@@ -1,0 +1,24 @@
+SCRIPT ID: manual-01
+TITLE: Test Application Setup
+PRECONDITION (S):
+    Automatic Pytest tests have been executed and all pass
+    The database has been cleared and reset from any previous instances of Pocket Money
+    The user has a terminal open in the root directory of the Pocket Money app.
+STEPS:
+    1. Run the command in the terminal "python3 app.py"
+        Expected result: Flask app starts and output indicates that it is running.
+    2. Open a web browser and navigate to the url outputted by Flask in the terminal that it is running on.
+        Expected result: The Pocket Money dashboard page appears with a modal saying "Welcome! Let's set up your first budget." overlaid.
+    3. Close out and ignore the modal.
+        Expected result: The dashboard page appears, with a budget by category and recent purchases table both empty containing
+        messages saying "no categories/purchases logged yet". To the left of the page is a vertical navigation bar and it should
+        have in the following order: Dashboard, monthly setup, log purchase, spending chart and at the very bottom monthly reset in red.
+    4. Click the monthly setup button.
+        Expected result: The page changes to the monthly setup page. Two widgets appear on top of one another, one for add category
+        and another for set/update budget. The navbar remains the same.
+    5. Click the log purchase button.
+        Expected result: The page changes to the log purchase page. A single widget appears, to log a purchase.
+    6. Click the spending chart button (NOTE: THIS IS MAINLY TESTED IN THE GRAPH TEST)
+        Expected result: The page changes to the spending chart page. There is a widget for a budget vs spending chart, but no
+        graph appears.
+    7. End the test by clicking monthly reset and CTRL C in the terminal.

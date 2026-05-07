@@ -1,0 +1,48 @@
+SCRIPT ID: manual-05
+TITLE: Test Spending vs. Budget with Valid Inputs
+PRECONDITION (S):
+    The app has been initialized successfully and the frontend is working and open
+    Automatic Pytest tests have been executed and all pass
+    Tests manual-01 through manual-04 have been conducted and all meet expected results
+    The database has been cleared and reset from any previous instances of Pocket Money
+STEPS:
+    1. Navigate to the "Spending Chart" page
+        Expected Result: No chart is displayed and the window says "Budget vs spending chart"
+    2. Navigate to the "Monthly Setup" page and log the following: 
+        Food, $400
+        Rent, $750
+        Expected Result: These 2 categories as well as the correct amounts for each one show up on the Dashboard.
+    3. Navigate back to the spending chart page (Test case: Spent = 0)
+        Expected result: A bar graph appears in the center of the screen labeled "Budget vs spending". In the top left
+                        corner, there are 3 labels listed: "spent within budget", which is green, "remaining budget" which 
+                        is gray and "overspent" which is red.
+                        Two categories are labeled on the x axis, food and rent. ON the y axis, amounts are labeled in ticks.
+                        There should be two gray bars, one for food and one for rent. The food bar should be the height of 400
+                        on the y axis and the rent bar should be the height of 750 on the y axis. Overlaid on the food bar is "$400.00"
+                        and on the rent bar "$200.00".
+    4. Navigate to the log purchase page and log two purchases: "Pet fee" for the rent category for $100 and "Dinner at Cucinella's"
+        for the food category for $50.
+        Expected result: After each addition, user is redirected to the Dashboard and the previously added purchase shows up.
+    5. Navigate to the spending chart page. (Test case: Spent < Budget)
+        Expected result: The graph appears in the same place with the same categories, x axis labels and y axis labels.
+                        However, now each category is divided into a gray AND a green part. The green part should begin at the 
+                        base of the graph and extend upwards, with the gray portion on top. For the Food category, "$50.00" appears
+                        on the green portion and "$350.00" appears on the gray portion. For the rent category, "$100.00 appears on the
+                        green portion and "$650.00" on the gray portion.
+    6. Navigate to the log purchase page and log two purchases: "Rent" for the rent category for $650 and "Groceries" for the food
+        category for $350.
+        Expected result: After each addition, user is redirected to the Dashboard and the previously added purchase shows up.
+    7.  Navigate to the spending chart page. (Test case: Spent = Budget)
+        Expected result: The graph appears in the same place with the same categories, x axis labels and y axis labels.
+                        However, now each category bar is completely green. The bars are the same height as they were for the past
+                        two tests. On the food category is "$400.00" and on the rent category is "$750.00".
+    8. Navigate to the log purchase page and log two purchases: "Extra" for the rent category for $100 and "Extra" for the food
+        category for $100.
+        Expected result: After each addition, user is redirected to the Dashboard and the previously added purchase shows up.
+    9. Navigate to the spending chart page. (Test case: Spent > Budget)
+        Expected result: The graph appears in the same place with the same categories, x axis labels and y axis labels.
+                        However, now each category bar has a green and a red portion. The bars have increased in height by 100 each.
+                        The height that the bars were originally at is fully green and the "extra" 100 on each is red.
+                        On the food category is "$400.00" on the green part and on the rent category is "$750.00" on the green part.
+                        Above each green part should be the red part and should say "+$100.00".
+    10. End the test by clicking monthly reset and CTRL C in the terminal.
